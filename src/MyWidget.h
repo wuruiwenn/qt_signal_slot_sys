@@ -13,8 +13,8 @@
 //自定义的窗口类
 class MyWidget :public Object
 {
-public:
     W_OBJECT // 模拟QT Q_OBJECT宏
+
 public:
     MyWidget();
     virtual ~MyWidget();

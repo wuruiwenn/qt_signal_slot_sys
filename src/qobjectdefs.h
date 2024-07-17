@@ -30,12 +30,16 @@ struct MetaObject //元对象 结构
 };
 
 //Connection结构：存储接受信号的对象、对应槽函数的索引
+//用于 信号-槽 map结构的value
+// value若直接存储槽函数的索引不太好，因为可能有不同接收信号的对象，具有相同的槽函数
+//所以同时存储 接收信号 的对象，以及属于该对象 的槽函数(的索引)
 struct Connection
 {
     Object* receiver;
     int slotIndx;
 
-    std::string getClassInfo() {
+    std::string getClassInfo()
+    {
         std::ostringstream oss;
         oss << "[ObjectName:" << receiver->getClassName() << ",slotIndx:" << slotIndx << "]";
         return oss.str();
@@ -50,11 +54,15 @@ struct Connection
 template<class T>
 inline void MetaObject::activate(T* sender, int signal_indx)
 {
-    //这里体现C++观察者模式，一个信号状态变化，会通知所有和他关联的槽函数
+    //这里体现C++观察者模式，一个信号状态变化，会通知所有和其关联的槽函数
+
+    //使用map  equals_range()函数找到key对应的多个value
     auto ret_pair = sender->SigSlotMap.equal_range(signal_indx);
     auto valid_begin = ret_pair.first;
     auto valid_end = ret_pair.second;
     auto it = valid_begin;
+
+    //遍历执行所有关联的槽函数
     for (auto it = valid_begin;it != valid_end;it++)
     {
         std::cout << "找到指定信号函数对应的槽函数信息：\n";
@@ -65,7 +73,7 @@ inline void MetaObject::activate(T* sender, int signal_indx)
         // QT中使用qt_metacall() 根据槽函数索引，找到对应槽函数进行执行
         // QT中似乎使用qt_metacall纯粹是Q_OBECJT声明得到的，然后moc_xxx.cpp为当前自定义的类中实现了它
         //并不是 QWidget、QObject中声明的函数、或接口
-        int slot_dx = it->second.slotIndx;
+        int slot_dx = (it->second).slotIndx;
         sender->qt_meta_call(slot_dx);
     }
 }
