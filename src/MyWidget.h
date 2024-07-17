@@ -23,7 +23,7 @@ public:
     void connect(Object* sender, const char* signal, Object* receiver, const char* slot) override;
 public:
     typedef std::multimap<int, Connection> SigSlotMapType;
-    typedef SigSlotMapType::iterator MapIterType;
+    // typedef SigSlotMapType::iterator MapIterType;
     SigSlotMapType SigSlotMap;//存储当前类的 信号-槽 关联关系 的map
 
 public:
