@@ -4,12 +4,6 @@
 #include"qobjectdefs.h"
 #include<map>
 
-// struct MetaObject //元对象，QT中是把其放在单独的 qobjectdefs.h中
-// {
-//     const char* signal_nams;
-//     const char* slot_names;
-// };
-
 //自定义的窗口类
 class MyWidget :public Object
 {
