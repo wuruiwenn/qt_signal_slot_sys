@@ -12,11 +12,13 @@ class MyWidget :public Object
 public:
     MyWidget();
     virtual ~MyWidget();
+
 w_signals:
     void mySignal();
 w_slots:
     void mySlot();
     void mySlot2();
+
 public:
     void connect(Object* sender, const char* signal, Object* receiver, const char* slot) override;
 public:
