@@ -47,8 +47,6 @@ struct Connection
 };
 
 
-
-
 //activate激活信号发送
 //本质就是 根据已经初始化的 信号-槽 关联关系 的map，找到当前信号对应的槽函数，并执行
 template<class T>
@@ -60,7 +58,7 @@ inline void MetaObject::activate(T* sender, int signal_indx)
     auto ret_pair = sender->SigSlotMap.equal_range(signal_indx);
     auto valid_begin = ret_pair.first;
     auto valid_end = ret_pair.second;
-    auto it = valid_begin;
+    // auto it = valid_begin;
 
     //遍历执行所有关联的槽函数
     for (auto it = valid_begin;it != valid_end;it++)

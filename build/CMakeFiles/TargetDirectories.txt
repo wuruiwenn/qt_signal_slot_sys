@@ -1,3 +1,0 @@
-/home/riven/QT_sig_slot/build/CMakeFiles/wrwSigSlot.dir
-/home/riven/QT_sig_slot/build/CMakeFiles/edit_cache.dir
-/home/riven/QT_sig_slot/build/CMakeFiles/rebuild_cache.dir

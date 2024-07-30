@@ -6,11 +6,9 @@
 #include<typeinfo>
 
 MyWidget::~MyWidget() {
-
 }
 
 MyWidget::MyWidget() {
-
 }
 
 void MyWidget::mySlot() {
@@ -21,6 +19,7 @@ void MyWidget::mySlot() {
 //connect()：任务是建立信号-槽之间的关联关系，即将其关联关系初始化至map结构
 void MyWidget::connect(Object* sender, const char* signal, Object* receiver, const char* slot)
 {
+    //多态，向下强转
     MyWidget* curSenderObj = dynamic_cast<MyWidget*>(sender);
     MyWidget* curRevObj = dynamic_cast<MyWidget*>(receiver);
 

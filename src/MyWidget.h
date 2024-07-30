@@ -15,6 +15,7 @@ public:
 
 w_signals:
     void mySignal();
+
 w_slots:
     void mySlot();
     void mySlot2();

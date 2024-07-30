@@ -12,7 +12,7 @@ include_directories(${PROJECT_SOURCE_DIR}/src)
 
 
 # CMakeLists.txt 文件不需要显式列出所有的 .cpp 文件路径
-# 但需要告诉 CMake 要编译哪些源文件，使用add_executable
+# 但需要告诉 CMake 要编译哪些源文件，指定要使用哪些源文件来生成exe，使用add_executable
 # add_executable(wrwSigSlot src/MyWidget.cpp src/moc_MyWidget.cpp src/main.cpp)
 
 # 若需指定的 .cpp文件 很多，可以将指定目录下的源文件列表存放到变量中
