@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/riven/QT_sig_slot/build",
+  "command": "/usr/bin/c++  -I/home/riven/QT_sig_slot/src -g -o CMakeFiles/wrwSigSlot.dir/src/MyWidget.cpp.o -c /home/riven/QT_sig_slot/src/MyWidget.cpp",
+  "file": "/home/riven/QT_sig_slot/src/MyWidget.cpp"
+},
+{
+  "directory": "/home/riven/QT_sig_slot/build",
+  "command": "/usr/bin/c++  -I/home/riven/QT_sig_slot/src -g -o CMakeFiles/wrwSigSlot.dir/src/main.cpp.o -c /home/riven/QT_sig_slot/src/main.cpp",
+  "file": "/home/riven/QT_sig_slot/src/main.cpp"
+},
+{
+  "directory": "/home/riven/QT_sig_slot/build",
+  "command": "/usr/bin/c++  -I/home/riven/QT_sig_slot/src -g -o CMakeFiles/wrwSigSlot.dir/src/moc_MyWidget.cpp.o -c /home/riven/QT_sig_slot/src/moc_MyWidget.cpp",
+  "file": "/home/riven/QT_sig_slot/src/moc_MyWidget.cpp"
+},
+{
+  "directory": "/home/riven/QT_sig_slot/build",
+  "command": "/usr/bin/c++  -I/home/riven/QT_sig_slot/src -g -o CMakeFiles/wrwSigSlot.dir/src/qobject.cpp.o -c /home/riven/QT_sig_slot/src/qobject.cpp",
+  "file": "/home/riven/QT_sig_slot/src/qobject.cpp"
+}
+]

@@ -4,18 +4,19 @@
 任何类内部调用connect，本质都是this->connect()，这正是调用父类QObject::connect()
 connect属于QObject是必然的，
 因为参数是发出/接收信号的目标对象，在QObject里面怎么可能定义自定义类的类型？
+类型肯定是顶层父类QObject，然后子类继承他，去重写connect
 
 2.通过Q_OBJECT宏生成的staticMetaObject、metaObject()、qt_meta_call() 等
 属性、函数，均属于QMetaObject类的成员，定义于 <qobjectdefs.h> 中
 而既然通过Q_OBJECT宏生成的这些东西，
-被生成在自定义的类内，则就是自定义类的属性、成员函数。
+被生成在自定义的类内，则就是自定义类的 成员属性、成员函数。
 但是实现这些 属性、成员函数，是通过moc完成的，实现内容位于 moc_xxx.cpp中。
 其中：
     staticMetaObject：用来存储元数据，即类的成员函数、属性、信号、槽 有哪些
     metaObject()：return &staticMetaObject;
     qt_meta_call()：通过槽函数的索引，找到真正的槽函数，进行执行
 
-3.信号函数，无需实现是面向程序员的，
+3.信号函数，无需实现是面向程序员而言的，
 其实是moc帮助实现了的，实现内容位于 moc_xxx.cpp中
 emit mySignal(); 本质就是调用信号函数，
 其内部调用 activate(sender,signal indx) ——> qt_meta_call(signal indx)
